@@ -1,0 +1,9 @@
+includes:
+    - vendor/larastan/larastan/extension.neon
+
+parameters:
+    paths:
+        - app/
+
+    # 0 = loose, 10 = strictest. 6 checks types of params, returns and properties.
+    level: 6

@@ -12,8 +12,8 @@ use App\Enums\ServiceArea as A;
 use App\Enums\Specialization as S;
 use App\Models\Apartment;
 use App\Models\User;
+use App\Support\Media;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 /**
@@ -130,7 +130,7 @@ class HomelySeeder extends Seeder
     private function storeImage(string $photo, string $directory): string
     {
         $path = $directory.'/'.Str::uuid().'.jpg';
-        Storage::disk(User::AVATAR_DISK)->put($path, (string) file_get_contents(self::IMAGES."/{$photo}.jpg"));
+        Media::disk()->put($path, (string) file_get_contents(self::IMAGES."/{$photo}.jpg"));
 
         return $path;
     }

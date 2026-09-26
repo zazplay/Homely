@@ -5,7 +5,7 @@ namespace App\Actions\Apartments;
 use App\Models\Apartment;
 use App\Models\ApartmentPhoto;
 use App\Support\Base64Image;
-use Illuminate\Support\Facades\Storage;
+use App\Support\Media;
 use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
 use Throwable;
@@ -30,7 +30,7 @@ class StoreApartmentPhotos
             ]);
         }
 
-        $disk = Storage::disk(ApartmentPhoto::DISK);
+        $disk = Media::disk();
         $position = (int) $apartment->photos()->max('position');
         $written = [];
 

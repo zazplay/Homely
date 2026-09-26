@@ -1,0 +1,26 @@
+# Installed inside the image
+vendor
+
+# Secrets / local config — production settings come from the host's environment variables
+.env
+.env.*
+!.env.example
+
+# Cached provider lists include dev-only packages that aren't installed in the image
+bootstrap/cache/*.php
+
+# Local runtime data
+storage/logs/*
+storage/framework/cache/data/*
+storage/framework/sessions/*
+storage/framework/views/*
+storage/app/public/*
+public/storage
+database/*.sqlite
+
+# Dev tooling
+tests
+.phpunit.result.cache
+phpstan.neon
+phpunit.xml
+.git

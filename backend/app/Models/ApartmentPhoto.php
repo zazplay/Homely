@@ -2,12 +2,12 @@
 
 namespace App\Models;
 
+use App\Support\Media;
 use Carbon\CarbonImmutable;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Support\Facades\Storage;
 
 /**
  * @property int $id
@@ -23,9 +23,6 @@ use Illuminate\Support\Facades\Storage;
 #[Fillable(['path', 'mime_type', 'size_bytes', 'position'])]
 class ApartmentPhoto extends Model
 {
-    /** Disk where photo files are stored (storage/app/public). */
-    public const DISK = 'public';
-
     public const MAX_PER_APARTMENT = 20;
 
     /**
@@ -54,6 +51,6 @@ class ApartmentPhoto extends Model
      */
     protected function url(): Attribute
     {
-        return Attribute::get(fn () => Storage::disk(self::DISK)->url($this->path));
+        return Attribute::get(fn () => (string) Media::url($this->path));
     }
 }

@@ -4,6 +4,7 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use App\Enums\UserRole;
+use App\Support\Media;
 use Carbon\CarbonImmutable;
 use Database\Factories\UserFactory;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
@@ -14,7 +15,6 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Support\Facades\Storage;
 use Laravel\Sanctum\HasApiTokens;
 
 /**
@@ -37,9 +37,6 @@ class User extends Authenticatable
 {
     /** @use HasFactory<UserFactory> */
     use HasApiTokens, HasFactory, Notifiable;
-
-    /** Disk for avatars and profile covers (storage/app/public). */
-    public const AVATAR_DISK = 'public';
 
     /**
      * Get the attributes that should be cast.
@@ -103,6 +100,6 @@ class User extends Authenticatable
      */
     protected function avatarUrl(): Attribute
     {
-        return Attribute::get(fn () => $this->avatar_path ? Storage::disk(self::AVATAR_DISK)->url($this->avatar_path) : null);
+        return Attribute::get(fn () => Media::url($this->avatar_path));
     }
 }

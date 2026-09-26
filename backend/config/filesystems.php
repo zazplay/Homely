@@ -16,6 +16,12 @@ return [
     'default' => env('FILESYSTEM_DISK', 'local'),
 
     /*
+    | Disk for user media: listing photos, avatars, covers (see App\Support\Media).
+    | "public" locally; "s3" on hosts with an ephemeral filesystem (Render, Heroku…).
+    */
+    'media_disk' => env('MEDIA_DISK', 'public'),
+
+    /*
     |--------------------------------------------------------------------------
     | Filesystem Disks
     |--------------------------------------------------------------------------
@@ -56,7 +62,9 @@ return [
             'url' => env('AWS_URL'),
             'endpoint' => env('AWS_ENDPOINT'),
             'use_path_style_endpoint' => env('AWS_USE_PATH_STYLE_ENDPOINT', false),
-            'throw' => false,
+            // Fail loudly: a silently failed upload would leave a listing with broken photos
+            // (StoreApartmentPhotos rolls back and cleans up on exceptions).
+            'throw' => true,
             'report' => false,
         ],
 

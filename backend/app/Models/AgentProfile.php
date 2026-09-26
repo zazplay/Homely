@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Enums\Language;
 use App\Enums\ServiceArea;
 use App\Enums\Specialization;
+use App\Support\Media;
 use Carbon\CarbonImmutable;
 use Database\Factories\AgentProfileFactory;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
@@ -14,7 +15,6 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\Storage;
 
 /**
  * @property int $id
@@ -79,6 +79,6 @@ class AgentProfile extends Model
      */
     protected function coverUrl(): Attribute
     {
-        return Attribute::get(fn () => $this->cover_path ? Storage::disk(User::AVATAR_DISK)->url($this->cover_path) : null);
+        return Attribute::get(fn () => Media::url($this->cover_path));
     }
 }

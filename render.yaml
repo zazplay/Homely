@@ -1,0 +1,57 @@
+# Render Blueprint — the Laravel API as a free Docker web service.
+# New → Blueprint → pick this repo. Values marked `sync: false` are secrets: Render asks for them
+# in the dashboard and they never live in the repository.
+services:
+  - type: web
+    name: homely-api
+    runtime: docker
+    plan: free
+    rootDir: ./backend
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: ./backend
+    healthCheckPath: /up
+    autoDeploy: true
+    envVars:
+      # --- app ---
+      - key: APP_NAME
+        value: Homely API
+      - key: APP_KEY          # php artisan key:generate --show
+        sync: false
+      - key: APP_URL          # https://<service>.onrender.com
+        sync: false
+      - key: AUTH_GUARD
+        value: sanctum
+      - key: SESSION_DRIVER   # stateless token API
+        value: array
+      - key: CACHE_STORE
+        value: database
+
+      # --- database: Supabase Postgres (session pooler — IPv4, works from Render) ---
+      - key: DB_CONNECTION
+        value: pgsql
+      - key: DB_URL           # postgresql://postgres.<ref>:<password>@aws-0-<region>.pooler.supabase.com:5432/postgres
+        sync: false
+      - key: DB_SSLMODE
+        value: require
+
+      # --- media: Supabase Storage over the S3 protocol (Render's disk is wiped on deploy) ---
+      - key: MEDIA_DISK
+        value: s3
+      - key: AWS_ACCESS_KEY_ID
+        sync: false
+      - key: AWS_SECRET_ACCESS_KEY
+        sync: false
+      - key: AWS_DEFAULT_REGION   # the Supabase project region, e.g. eu-central-1
+        sync: false
+      - key: AWS_BUCKET
+        value: media
+      - key: AWS_ENDPOINT         # https://<ref>.storage.supabase.co/storage/v1/s3
+        sync: false
+      - key: AWS_URL              # https://<ref>.supabase.co/storage/v1/object/public/media
+        sync: false
+      - key: AWS_USE_PATH_STYLE_ENDPOINT
+        value: "true"
+
+      # --- first deploy: fill the empty database with the Homely demo content ---
+      - key: SEED_DEMO
+        value: "true"

@@ -3,7 +3,7 @@
 namespace App\Actions\Apartments;
 
 use App\Models\ApartmentPhoto;
-use Illuminate\Support\Facades\Storage;
+use App\Support\Media;
 
 class DeleteApartmentPhoto
 {
@@ -11,6 +11,6 @@ class DeleteApartmentPhoto
     {
         $photo->delete();
 
-        Storage::disk(ApartmentPhoto::DISK)->delete($photo->path);
+        Media::disk()->delete($photo->path);
     }
 }

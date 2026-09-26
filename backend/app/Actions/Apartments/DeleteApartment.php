@@ -3,8 +3,7 @@
 namespace App\Actions\Apartments;
 
 use App\Models\Apartment;
-use App\Models\ApartmentPhoto;
-use Illuminate\Support\Facades\Storage;
+use App\Support\Media;
 
 class DeleteApartment
 {
@@ -15,6 +14,6 @@ class DeleteApartment
         // Photo rows go away via ON DELETE CASCADE, the files don't — remove them after the row is gone.
         $apartment->delete();
 
-        Storage::disk(ApartmentPhoto::DISK)->deleteDirectory($directory);
+        Media::disk()->deleteDirectory($directory);
     }
 }

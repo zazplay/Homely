@@ -1,0 +1,26 @@
+{
+    "name":  "realtor-frontend",
+    "type":  "module",
+    "private":  true,
+    "scripts":  {
+                    "build":  "nuxt build",
+                    "dev":  "nuxt dev",
+                    "generate":  "nuxt generate",
+                    "preview":  "nuxt preview",
+                    "postinstall":  "nuxt prepare",
+                    "typecheck":  "nuxt typecheck"
+                },
+    "dependencies":  {
+                         "@pinia/nuxt":  "^1.0.2",
+                         "@tailwindcss/vite":  "^4.3.3",
+                         "nuxt":  "^4.5.2",
+                         "pinia":  "^4.0.3",
+                         "tailwindcss":  "^4.3.3",
+                         "vue":  "^3.5.43",
+                         "vue-router":  "^5.3.1"
+                     },
+    "devDependencies":  {
+                            "typescript":  "~5.9",
+                            "vue-tsc":  "^3.3.11"
+                        }
+}

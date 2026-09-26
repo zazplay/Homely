@@ -1,58 +1,56 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Realtor
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Real estate listings: realtors publish apartments with photos, clients browse the catalog.
 
-## About Laravel
-
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
-
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
-
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
-
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
-
-## Agentic Development
-
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
-
-```bash
-composer require laravel/boost --dev
-
-php artisan boost:install
+```
+rieltor/
+├── backend/    Laravel 13 REST API — Sanctum, laravel-data, Actions, Pest, Larastan
+└── frontend/   Nuxt 4 — Vue 3, Pinia, Tailwind CSS v4, SSR
 ```
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+## Run locally
 
-## Contributing
+Requires PHP 8.4, Composer, PostgreSQL, Node 20+.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+**Backend** → http://localhost:8000 (Swagger: http://localhost:8000/docs/api)
 
-## Code of Conduct
+```bash
+cd backend
+composer install
+cp .env.example .env        # set DB_PASSWORD
+php artisan key:generate
+php artisan migrate --seed
+php artisan storage:link    # serves uploaded photos at /storage/...
+php artisan serve
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+**Frontend** → http://localhost:3000
 
-## Security Vulnerabilities
+```bash
+cd frontend
+npm install
+npm run dev
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+The API URL is `http://127.0.0.1:8000/api` by default; override with `NUXT_PUBLIC_API_BASE`.
 
-## License
+Demo accounts (password `password`): agents from the design mockup — `emma.carter@example.com`,
+`liam.brooks@example.com`, `sofia.nguyen@example.com`, … — plus `client@example.com` and `admin@example.com`.
+Listings, agent profiles and photos come from the "Homely" mockup (`backend/database/seeders/HomelySeeder.php`).
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## Checks
+
+```bash
+cd backend && composer check     # Pint + Larastan + Pest
+cd frontend && npm run typecheck # vue-tsc
+```
+
+## How photos work
+
+The frontend reads selected files as base64 data URIs and sends them in the JSON body.
+The API verifies the real file type from the bytes (JPEG / PNG / WebP, ≤ 5 MB), writes the file to
+`backend/storage/app/public/apartments/{id}/{uuid}.{ext}` and stores only the path in the database.
+Responses contain photo URLs, never base64.
+
+On platforms with an ephemeral filesystem (Render, Heroku) switch the disk to S3 / R2:
+`FILESYSTEM_DISK=s3` and `ApartmentPhoto::DISK`.

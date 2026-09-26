@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#f4f7f1;font-family:'Onest',system-ui,sans-serif;color:#1d2a1a;-webkit-font-smoothing:antialiased}
+a{color:#3f8f1c;text-decoration:none}a:hover{color:#2d6d10}
+*{box-sizing:border-box}
+input,textarea{font-family:inherit}
+input[type=range]{accent-color:#6fc22f}
+@keyframes hDrop{0%{opacity:0;transform:perspective(900px) rotateX(-70deg) translateY(-30px)}100%{opacity:1;transform:none}}
+@keyframes hLogo{0%,70%,100%{transform:rotateY(0)}80%{transform:rotateY(180deg)}90%{transform:rotateY(360deg)}}
+@keyframes hShine{0%{transform:translateX(-120%) skewX(-20deg)}60%,100%{transform:translateX(320%) skewX(-20deg)}}
+@keyframes hPop{0%{transform:perspective(500px) rotateX(-25deg) scale(.95);opacity:.5}100%{transform:none;opacity:1}}
+@keyframes hSk{0%{background-position:100% 0}100%{background-position:-100% 0}}
+@keyframes hBlink{0%,60%,100%{opacity:1}64%{opacity:.12}70%{opacity:1}73%{opacity:.2}76%{opacity:1}}
+@keyframes hOut{to{opacity:0;transform:scale(1.06);visibility:hidden}}
+@keyframes hTile{0%{opacity:0;transform:rotateX(65deg) rotateY(-35deg) scale(.55)}45%{opacity:1}100%{opacity:1;transform:none}}
+@keyframes hLit{0%{opacity:0}40%{opacity:.4}55%{opacity:0}100%{opacity:1}}
+@keyframes hLitOff{0%{opacity:0}25%,65%{opacity:1}100%{opacity:0}}
+@keyframes hUp{0%{opacity:0;transform:translateY(14px)}100%{opacity:1;transform:none}}
+@keyframes hBar{0%{width:0}100%{width:100%}}
+@media (prefers-reduced-motion:reduce){[data-pre]{display:none!important}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</helmet>
+<div style="min-height:100vh;background:radial-gradient(1200px 500px at 70% -100px,#e3f7c9 0%,rgba(227,247,201,0) 70%),linear-gradient(#f7faf4,#eef3ea);">
+<div data-pre="1" style="position:fixed;inset:0;z-index:100;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px;background:radial-gradient(900px 500px at 50% 40%,#f5fcec,#e4ecdc);animation:hOut .8s cubic-bezier(.6,0,.3,1) 2.1s forwards;pointer-events:none;"><div style="perspective:700px;"><div style="position:relative;width:128px;height:128px;border-radius:36px;background:linear-gradient(#2f4a26,#1d2a1a);border:2px solid #142010;box-shadow:inset 0 2px 0 rgba(255,255,255,.22),0 30px 50px -18px rgba(20,40,10,.55),0 8px 16px -6px rgba(20,40,10,.4);display:grid;grid-template-columns:1fr 1fr;gap:9px;padding:27px;overflow:hidden;animation:hTile 1.6s cubic-bezier(.25,.8,.25,1) both;"><div style="position:relative;border-radius:9px 5px 5px 5px;background:#43583b;box-shadow:inset 1px 1px 2px rgba(0,0,0,.35);"><div style="position:absolute;inset:0;border-radius:9px 5px 5px 5px;background:radial-gradient(circle at 40% 30%,#fffbe0,#ffe066 50%,#f5b800);box-shadow:0 0 22px rgba(255,214,60,.9);animation:hLit .5s ease-out .5s both;"></div></div><div style="position:relative;border-radius:5px 9px 5px 5px;background:#43583b;box-shadow:inset 1px 1px 2px rgba(0,0,0,.35);"><div style="position:absolute;inset:0;border-radius:5px 9px 5px 5px;background:radial-gradient(circle at 40% 30%,#fffbe0,#ffe066 50%,#f5b800);box-shadow:0 0 22px rgba(255,214,60,.9);animation:hLitOff 1.3s ease-in-out 0.8300000000000001s both;"></div></div><div style="position:relative;border-radius:5px 5px 5px 9px;background:#43583b;box-shadow:inset 1px 1px 2px rgba(0,0,0,.35);"><div style="position:absolute;inset:0;border-radius:5px 5px 5px 9px;background:radial-gradient(circle at 40% 30%,#fffbe0,#ffe066 50%,#f5b800);box-shadow:0 0 22px rgba(255,214,60,.9);animation:hLitOff 1.3s ease-in-out 1.01s both;"></div></div><div style="position:relative;border-radius:5px 5px 9px 5px;background:#43583b;box-shadow:inset 1px 1px 2px rgba(0,0,0,.35);"><div style="position:absolute;inset:0;border-radius:5px 5px 9px 5px;background:radial-gradient(circle at 40% 30%,#fffbe0,#ffe066 50%,#f5b800);box-shadow:0 0 22px rgba(255,214,60,.9);animation:hLitOff 1.3s ease-in-out 1.19s both;"></div></div><div style="position:absolute;left:0;right:0;top:0;height:50%;background:linear-gradient(rgba(255,255,255,.2),rgba(255,255,255,0));pointer-events:none;"></div></div></div><div style="font-family:'Onest',system-ui,sans-serif;font-weight:800;font-size:34px;letter-spacing:-.035em;color:#1d2a1a;animation:hUp .8s cubic-bezier(.25,.8,.25,1) .4s both;">Homely</div><div style="width:180px;height:8px;border-radius:999px;background:#dbe5d4;box-shadow:inset 0 2px 3px rgba(40,70,20,.2),0 1px 0 #fff;overflow:hidden;animation:hUp .8s cubic-bezier(.25,.8,.25,1) .55s both;"><div style="height:100%;border-radius:999px;background:linear-gradient(#dcfca2,#8fd84a 50%,#6fc22f 51%,#86d343);box-shadow:inset 0 1px 0 rgba(255,255,255,.9);animation:hBar 1.8s cubic-bezier(.4,0,.2,1) .3s both;"></div></div></div>
+<header style="position:sticky;top:0;z-index:20;padding:14px 24px;">
+  <div data-hbar="1" style="animation:hDrop .9s cubic-bezier(.2,.9,.25,1.1) backwards;transition:transform .5s cubic-bezier(.2,.8,.2,1),box-shadow .5s ease;transform-origin:50% 0;max-width:1240px;margin:0 auto;display:flex;align-items:center;gap:16px;padding:10px 12px 10px 18px;border-radius:20px;background:linear-gradient(#ffffff,#f1f5ee);border:1px solid #dbe5d4;box-shadow:inset 0 1px 0 #fff,0 1px 0 #cfdac7,0 10px 30px -12px rgba(60,100,30,.25);">
+    <a href="Homely.dc.html" style="display:flex;align-items:center;gap:10px;color:#1d2a1a;">
+      <div style="position:relative;width:38px;height:38px;flex-shrink:0;border-radius:11px;background:linear-gradient(#2f4a26,#1d2a1a);border:1px solid #142010;box-shadow:inset 0 1px 0 rgba(255,255,255,.25),0 5px 10px -3px rgba(20,40,10,.5);display:grid;grid-template-columns:1fr 1fr;gap:3px;padding:8px;overflow:hidden;"><div style="border-radius:3px 2px 2px 2px;background:radial-gradient(circle at 40% 30%,#fffbe0,#ffe066 50%,#f5b800);box-shadow:0 0 7px rgba(255,214,60,.95);animation:hBlink 5s ease-in-out infinite;"></div><div style="border-radius:2px 3px 2px 2px;background:#43583b;"></div><div style="border-radius:2px 2px 2px 3px;background:#43583b;"></div><div style="border-radius:2px 2px 3px 2px;background:#43583b;"></div><div style="position:absolute;left:0;right:0;top:0;height:50%;background:linear-gradient(rgba(255,255,255,.22),rgba(255,255,255,0));pointer-events:none;"></div></div>
+      <div style="font-weight:800;font-size:20px;letter-spacing:-.02em;">Homely<span style="color:#5aa825;">.</span></div>
+    </a>
+    <nav style="display:flex;gap:2px;flex:1 1 auto;min-width:0;overflow:hidden;white-space:nowrap;padding:6px 4px;margin:-6px -4px;">
+      <a href="Search.dc.html?mode=buy" style="padding:8px 14px;border-radius:10px;color:#2a3a26;font-weight:500;font-size:15px;border:1px solid transparent;transition:transform .6s cubic-bezier(.25,.8,.25,1),background-color .35s ease,box-shadow .45s ease,border-color .35s ease;" style-hover="color:#1f4a06;transform:translateY(-1px) scale(1.03);background-color:#eef8e2;border-color:#cfe6b8;box-shadow:inset 0 1px 0 #fff,0 8px 14px -8px rgba(80,150,30,.45);">Buy</a>
+      <a href="Search.dc.html?mode=rent" style="padding:8px 14px;border-radius:10px;color:#2a3a26;font-weight:500;font-size:15px;border:1px solid transparent;transition:transform .6s cubic-bezier(.25,.8,.25,1),background-color .35s ease,box-shadow .45s ease,border-color .35s ease;" style-hover="color:#1f4a06;transform:translateY(-1px) scale(1.03);background-color:#eef8e2;border-color:#cfe6b8;box-shadow:inset 0 1px 0 #fff,0 8px 14px -8px rgba(80,150,30,.45);">Rent</a>
+      <a href="Search.dc.html" style="padding:8px 14px;border-radius:10px;color:#2a3a26;font-weight:500;font-size:15px;border:1px solid transparent;transition:transform .6s cubic-bezier(.25,.8,.25,1),background-color .35s ease,box-shadow .45s ease,border-color .35s ease;" style-hover="color:#1f4a06;transform:translateY(-1px) scale(1.03);background-color:#eef8e2;border-color:#cfe6b8;box-shadow:inset 0 1px 0 #fff,0 8px 14px -8px rgba(80,150,30,.45);">New builds</a>
+      <a href="Agents.dc.html" style="padding:8px 14px;border-radius:10px;color:#2a3a26;font-weight:500;font-size:15px;border:1px solid transparent;transition:transform .6s cubic-bezier(.25,.8,.25,1),background-color .35s ease,box-shadow .45s ease,border-color .35s ease;" style-hover="color:#1f4a06;transform:translateY(-1px) scale(1.03);background-color:#eef8e2;border-color:#cfe6b8;box-shadow:inset 0 1px 0 #fff,0 8px 14px -8px rgba(80,150,30,.45);">Agents</a>
+    </nav>
+    <div style="margin-left:auto;display:flex;gap:10px;align-items:center;flex-shrink:0;">
+      <a href="Auth.dc.html" style="white-space:nowrap;padding:10px 16px;border-radius:12px;font-weight:600;font-size:15px;color:#2a3a26;background:linear-gradient(#fff,#eef2ea);border:1px solid #d3ddcb;box-shadow:inset 0 1px 0 #fff,0 2px 4px -1px rgba(0,0,0,.08);transition:transform .65s cubic-bezier(.25,.8,.25,1),box-shadow .65s ease;" style-hover="transform:translateY(-2px) scale(1.03);box-shadow:inset 0 1px 0 #fff,inset 0 10px 14px -8px #fff,0 10px 18px -8px rgba(40,70,20,.35);color:#2a3a26;">Sign in</a>
+      <a href="Homely.dc.html#post" style="white-space:nowrap;padding:10px 18px;border-radius:12px;font-weight:700;font-size:15px;color:#1f4a06;background:linear-gradient(#d4fa92,#94dc4f 50%,#7acb36 51%,#8fd84a);border:1px solid #62ad2a;box-shadow:inset 0 1px 0 rgba(255,255,255,.9),0 6px 14px -4px rgba(98,173,42,.6);text-shadow:0 1px 0 rgba(255,255,255,.5);transition:transform .65s cubic-bezier(.25,.8,.25,1),box-shadow .65s ease,filter .65s ease;" style-hover="transform:translateY(-2px) scale(1.04);filter:brightness(1.08) saturate(1.15);box-shadow:inset 0 1px 0 #fff,inset 0 14px 16px -10px rgba(255,255,255,.95),0 16px 26px -8px rgba(98,173,42,.75);color:#1f4a06;">+ Post a listing</a>
+    </div>
+  </div>
+</header>
+<main style="max-width:1240px;margin:0 auto;padding:16px 24px 60px;">
+  <section style="position:relative;border-radius:32px;overflow:hidden;background:linear-gradient(#ffffff,#eef4e9);border:1px solid #d7e2cf;box-shadow:inset 0 1px 0 #fff,0 1px 0 #cad7c1,0 36px 60px -34px rgba(50,90,20,.5);">
+    <div style="position:relative;height:220px;overflow:hidden;">
+      <img src="sources/1545324418-cc1a3fa10c00.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+      <div style="position:absolute;inset:0;background:linear-gradient(rgba(233,251,207,.25),rgba(233,251,207,0) 40%,rgba(255,255,255,.85));"></div>
+    </div>
+    <div style="position:relative;display:flex;gap:28px;align-items:flex-end;flex-wrap:wrap;padding:0 32px 28px;margin-top:-70px;">
+      <div style="perspective:600px;">
+        <img data-avatar="1" src="sources/1494790108377-be9c29b29330.jpg" alt="Emma Carter" style="width:148px;height:148px;border-radius:50%;object-fit:cover;border:6px solid #fff;box-shadow:0 0 0 1px #cfe0c2,0 24px 40px -14px rgba(50,90,20,.6);transition:transform .6s cubic-bezier(.25,.8,.25,1);">
+      </div>
+      <div style="flex:1 1 320px;min-width:0;">
+        <div style="white-space:nowrap;display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:999px;font-size:12px;font-weight:800;color:#1f4a06;background:linear-gradient(#dcfca2,#8fd84a);border:1px solid #6ab332;box-shadow:inset 0 1px 0 rgba(255,255,255,.9);">✓ Licensed & verified</div>
+        <h1 style="font-size:clamp(34px,4vw,48px);font-weight:800;letter-spacing:-.035em;margin:8px 0 4px;">Emma Carter</h1>
+        <div style="font-size:16px;color:#5f7257;">Senior agent · Greenleaf Realty · Brooklyn & Queens</div>
+      </div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;flex:0 0 auto;">
+        <a href="#contact" style="white-space:nowrap;padding:14px 22px;border-radius:14px;font-weight:800;font-size:16px;color:#1f4a06;background:linear-gradient(#dcfca2,#9ae055 48%,#7ccc38 52%,#92da4c);border:1px solid #5ea626;box-shadow:inset 0 1px 0 rgba(255,255,255,.95),0 8px 18px -6px rgba(98,173,42,.7);text-shadow:0 1px 0 rgba(255,255,255,.55);transition:transform .65s cubic-bezier(.25,.8,.25,1),box-shadow .65s ease,filter .65s ease;" style-hover="color:#1f4a06;transform:translateY(-2px) scale(1.03);filter:brightness(1.08);box-shadow:inset 0 1px 0 #fff,inset 0 16px 18px -10px rgba(255,255,255,.95),0 16px 26px -8px rgba(98,173,42,.8);">Message Emma</a>
+        <a href="#" style="white-space:nowrap;padding:14px 22px;border-radius:14px;font-weight:700;font-size:16px;color:#2a3a26;background:linear-gradient(#fff,#eef2ea);border:1px solid #d3ddcb;box-shadow:inset 0 1px 0 #fff,0 2px 4px -1px rgba(0,0,0,.08);transition:transform .65s cubic-bezier(.25,.8,.25,1),box-shadow .65s ease;" style-hover="color:#2a3a26;transform:translateY(-2px) scale(1.03);box-shadow:inset 0 1px 0 #fff,0 10px 18px -8px rgba(40,70,20,.35);">(718) 555-0142</a>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;padding:0 32px 32px;">
+      <sc-for list="{{ stats }}" as="s" hint-placeholder-count="4">
+        <div data-tilt="1" style="padding:16px 18px;border-radius:18px;background:#fff;border:1px solid #dde6d6;box-shadow:inset 0 1px 0 #fff,0 12px 22px -16px rgba(50,90,20,.4);transition:transform .45s cubic-bezier(.25,.8,.25,1);">
+          <sc-if value="{{ skel }}" hint-placeholder-val="{{ true }}"><div style="display:flex;flex-direction:column;gap:8px;"><div style="height:28px;width:60%;border-radius:8px;background:linear-gradient(100deg,#e3ebdc 20%,#f6faf2 45%,#e3ebdc 70%);background-size:300% 100%;animation:hSk 1.5s ease-in-out infinite;"></div><div style="height:12px;width:80%;border-radius:6px;background:linear-gradient(100deg,#e3ebdc 20%,#f6faf2 45%,#e3ebdc 70%);background-size:300% 100%;animation:hSk 1.5s ease-in-out infinite;"></div></div></sc-if><sc-if value="{{ ready }}" hint-placeholder-val="{{ false }}"><div style="font-size:28px;font-weight:800;letter-spacing:-.03em;">{{ s.v }}</div>
+          <div style="font-size:13px;color:#5f7257;font-weight:500;">{{ s.k }}</div></sc-if>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section style="display:flex;flex-wrap:wrap;gap:32px;margin-top:40px;align-items:flex-start;">
+    <div style="flex:1 1 520px;display:flex;flex-direction:column;gap:40px;min-width:0;">
+      <div data-reveal="1">
+        <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:20px;">
+          <h2 style="font-size:32px;letter-spacing:-.03em;font-weight:800;margin:0;">Emma's listings</h2>
+          <div style="display:flex;gap:6px;padding:5px;border-radius:16px;background:#e6ede0;box-shadow:inset 0 2px 4px rgba(40,70,20,.12),0 1px 0 #fff;">
+            <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="3">
+              <sc-if value="{{ t.active }}" hint-placeholder-val="{{ false }}">
+                <button onClick="{{ t.select }}" style="font:inherit;cursor:pointer;padding:8px 14px;border-radius:11px;font-size:14px;font-weight:700;color:#1d2a1a;background:linear-gradient(#fff,#f1f6ec);border:1px solid #d3ddcb;box-shadow:inset 0 1px 0 #fff,0 3px 6px -2px rgba(40,70,20,.2);animation:hPop .7s cubic-bezier(.25,.8,.25,1);">{{ t.label }} · {{ t.n }}</button>
+              </sc-if>
+              <sc-if value="{{ t.inactive }}" hint-placeholder-val="{{ true }}">
+                <button onClick="{{ t.select }}" style="font:inherit;cursor:pointer;padding:8px 14px;border-radius:11px;font-size:14px;font-weight:500;color:#5a6c52;background-color:transparent;border:1px solid transparent;transition:transform .6s cubic-bezier(.25,.8,.25,1),background-color .4s;" style-hover="color:#1d2a1a;background-color:rgba(255,255,255,.6);transform:translateY(-1px) scale(1.03);">{{ t.label }} · {{ t.n }}</button>
+              </sc-if>
+            </sc-for>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,250px),1fr));gap:18px;min-height:{{ gridMin }};align-content:start;overflow-anchor:none;">
+          <sc-if value="{{ skel }}" hint-placeholder-val="{{ true }}"><sc-for list="{{ sk3 }}" as="x" hint-placeholder-count="3"><div style="display:flex;flex-direction:column;border-radius:24px;background:linear-gradient(#ffffff,#f5f8f2);border:1px solid #d9e3d1;box-shadow:inset 0 1px 0 #fff,0 1px 0 #cbd8c2,0 18px 36px -22px rgba(50,90,20,.35);overflow:hidden;"><div style="margin:8px 8px 0;aspect-ratio:4/3;border-radius:18px;background:linear-gradient(100deg,#e3ebdc 20%,#f6faf2 45%,#e3ebdc 70%);background-size:300% 100%;animation:hSk 1.5s ease-in-out infinite;"></div><div style="padding:16px 18px 18px;display:flex;flex-direction:column;gap:10px;"><div style="height:26px;width:55%;border-radius:8px;background:linear-gradient(100deg,#e3ebdc 20%,#f6faf2 45%,#e3ebdc 70%);background-size:300% 100%;animation:hSk 1.5s ease-in-out infinite;"></div><div style="height:16px;width:85%;border-radius:6px;background:linear-gradient(100deg,#e3ebdc 20%,#f6faf2 45%,#e3ebdc 70%);background-size:300% 100%;animation:hSk 1.5s ease-in-out infinite;"></div><div style="height:14px;width:65%;border-radius:6px;background:linear-gradient(100deg,#e3ebdc 20%,#f6faf2 45%,#e3ebdc 70%);background-size:300% 100%;animation:hSk 1.5s ease-in-out infinite;"></div></div></div></sc-for></sc-if><sc-if value="{{ ready }}" hint-placeholder-val="{{ false }}"><sc-for list="{{ listings }}" as="l" hint-placeholder-count="4">
+            <a href="Listing.dc.html" data-tilt="1" data-card="1" style="display:flex;flex-direction:column;border-radius:22px;color:#1d2a1a;background:linear-gradient(#ffffff,#f5f8f2);border:1px solid #d9e3d1;box-shadow:inset 0 1px 0 #fff,0 1px 0 #cbd8c2,0 18px 36px -22px rgba(50,90,20,.45);overflow:hidden;transition:transform .45s cubic-bezier(.25,.8,.25,1);">
+              <div style="position:relative;margin:8px 8px 0;aspect-ratio:4/3;border-radius:16px;overflow:hidden;background:#e4efd9;">
+                <img src="{{ l.url }}" alt="{{ l.title }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+                <div style="position:absolute;left:0;right:0;top:0;height:40%;background:linear-gradient(rgba(255,255,255,.5),rgba(255,255,255,0));"></div>
+                <div style="position:absolute;left:10px;top:10px;padding:4px 10px;border-radius:8px;font-size:11px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:#1f4a06;background:linear-gradient(#dcfca2,#8fd84a);border:1px solid #6ab332;box-shadow:inset 0 1px 0 rgba(255,255,255,.9);">{{ l.tag }}</div>
+              </div>
+              <div style="padding:14px 16px 16px;">
+                <div style="font-size:21px;font-weight:800;letter-spacing:-.02em;">{{ l.price }}</div>
+                <div style="font-size:15px;font-weight:600;margin-top:4px;">{{ l.title }}</div>
+                <div style="font-size:13px;color:#5f7257;margin-top:2px;">{{ l.addr }}</div>
+              </div>
+            </a>
+          </sc-for></sc-if>
+        </div>
+      </div>
+
+      <div data-reveal="1">
+        <h2 style="font-size:32px;letter-spacing:-.03em;font-weight:800;margin:0 0 20px;">Client reviews</h2>
+        <div style="display:flex;flex-direction:column;gap:14px;">
+          <sc-for list="{{ reviews }}" as="r" hint-placeholder-count="3">
+            <div style="padding:22px;border-radius:22px;background:linear-gradient(#ffffff,#f5f8f2);border:1px solid #d9e3d1;box-shadow:inset 0 1px 0 #fff,0 1px 0 #cbd8c2,0 14px 28px -22px rgba(50,90,20,.4);">
+              <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;">
+                <div style="font-weight:700;">{{ r.name }} <span style="font-weight:500;color:#5f7257;">· {{ r.deal }}</span></div>
+                <div style="color:#4f9a1f;font-weight:800;letter-spacing:2px;">★★★★★</div>
+              </div>
+              <p style="margin:10px 0 0;font-size:15px;line-height:1.6;color:#3d4d37;text-wrap:pretty;">{{ r.text }}</p>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+
+    <aside id="contact" style="flex:1 1 280px;max-width:400px;position:sticky;top:110px;display:flex;flex-direction:column;gap:14px;">
+      <div style="padding:24px;border-radius:26px;background:linear-gradient(#ffffff,#eef4e9);border:1px solid #d7e2cf;box-shadow:inset 0 1px 0 #fff,0 1px 0 #cad7c1,0 30px 50px -28px rgba(50,90,20,.5);">
+        <h3 style="font-size:20px;font-weight:800;margin:0 0 6px;">About Emma</h3>
+        <p style="margin:0 0 16px;font-size:15px;line-height:1.6;color:#3d4d37;">12 years helping families buy and sell across Brooklyn. Specializes in pre-war co-ops, first-time buyers and relocation.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:18px;">
+          <sc-for list="{{ tags }}" as="g" hint-placeholder-count="4">
+            <span style="padding:6px 10px;border-radius:9px;font-size:12px;font-weight:600;color:#3d5a31;background:#eef4e8;border:1px solid #dbe6d2;">{{ g }}</span>
+          </sc-for>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <input placeholder="Your name" style="padding:12px 14px;border-radius:12px;border:1px solid #dde6d6;background:#fff;font-size:15px;outline:0;box-shadow:inset 0 2px 3px rgba(40,70,20,.06);">
+          <input placeholder="Phone or email" style="padding:12px 14px;border-radius:12px;border:1px solid #dde6d6;background:#fff;font-size:15px;outline:0;box-shadow:inset 0 2px 3px rgba(40,70,20,.06);">
+          <textarea rows="3" placeholder="I'm looking for…" style="padding:12px 14px;border-radius:12px;border:1px solid #dde6d6;background:#fff;font-size:15px;outline:0;resize:vertical;box-shadow:inset 0 2px 3px rgba(40,70,20,.06);"></textarea>
+          <button onClick="{{ send }}" style="font:inherit;cursor:pointer;padding:15px;border-radius:14px;font-weight:800;font-size:16px;color:#1f4a06;background:linear-gradient(#dcfca2,#9ae055 48%,#7ccc38 52%,#92da4c);border:1px solid #5ea626;box-shadow:inset 0 1px 0 rgba(255,255,255,.95),inset 0 -2px 0 rgba(60,120,20,.25),0 8px 18px -6px rgba(98,173,42,.7);text-shadow:0 1px 0 rgba(255,255,255,.55);transition:transform .65s cubic-bezier(.25,.8,.25,1),box-shadow .65s ease,filter .65s ease;" style-hover="transform:translateY(-2px) scale(1.02);filter:brightness(1.08);box-shadow:inset 0 1px 0 #fff,inset 0 16px 18px -10px rgba(255,255,255,.95),0 16px 26px -8px rgba(98,173,42,.8);">{{ sendLabel }}</button>
+        </div>
+        <div style="margin-top:16px;font-size:13px;color:#5f7257;">License #10401234567 · Replies in ~15 min</div>
+      </div>
+    </aside>
+  </section>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;forceSkeleton&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;}}">
+class Component extends DCLogic {
+  state = { tab: 0, sent: false, boot: true, busy: false };
+  componentDidMount() {
+    this._boot = setTimeout(() => this.setState({ boot: false }), 2700);
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    this._move = e => {
+      const a = document.querySelector('[data-avatar]');
+      if (a) { const x = e.clientX / innerWidth - .5, y = e.clientY / innerHeight - .5; a.style.transform = `rotateY(${x * 24}deg) rotateX(${-y * 16}deg)`; }
+      const c = e.target.closest && e.target.closest('[data-tilt]');
+      if (this._cur && this._cur !== c) this._cur.style.transform = '';
+      this._cur = c;
+      if (c) {
+        const r = c.getBoundingClientRect();
+        const px = (e.clientX - r.left) / r.width - .5, py = (e.clientY - r.top) / r.height - .5;
+        c.style.transform = `perspective(900px) rotateX(${-py * 7}deg) rotateY(${px * 9}deg) translateY(-4px)`;
+      }
+    };
+    window.addEventListener('mousemove', this._move);
+    this._scroll = () => { const b = document.querySelector('[data-hbar]'); if (!b) return; const on = scrollY > 20; b.style.transform = on ? 'scale(.985)' : ''; b.style.boxShadow = on ? 'inset 0 1px 0 #fff,0 1px 0 #cfdac7,0 18px 40px -14px rgba(60,100,30,.4)' : ''; };
+    window.addEventListener('scroll', this._scroll, { passive: true });
+    const els = document.querySelectorAll('[data-reveal]');
+    els.forEach(el => { el.style.opacity = '0'; el.style.transform = 'perspective(1200px) rotateX(8deg) translateY(40px)'; el.style.transformOrigin = '50% 0'; el.style.transition = 'opacity .9s ease, transform 1s cubic-bezier(.2,.8,.2,1)'; });
+    this._io = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) { en.target.style.opacity = '1'; en.target.style.transform = 'none'; this._io.unobserve(en.target); } }), { threshold: .1 });
+    els.forEach(el => this._io.observe(el));
+  }
+  componentWillUnmount() {
+    window.removeEventListener('mousemove', this._move);
+    window.removeEventListener('scroll', this._scroll);
+    this._io && this._io.disconnect();
+  }
+  renderVals() {
+    const U = id => `sources/${id}.jpg`;
+    const all = [
+      { s: 0, tag: 'For sale', price: '$785,000', title: 'Sunny 3-bed with balcony', addr: 'Park Slope, Brooklyn', url: U('1560448204-e02f11c3d0e2') },
+      { s: 0, tag: 'For sale', price: '$659,000', title: 'Cozy townhouse, renovated kitchen', addr: 'Astoria, Queens', url: U('1484154218962-a197022b5858') },
+      { s: 0, tag: 'For sale', price: '$712,000', title: 'Bright 2-bed near the park', addr: 'Windsor Terrace, Brooklyn', url: U('1522708323590-d24dbb6b0267') },
+      { s: 1, tag: 'For rent', price: '$3,400/mo', title: 'Loft studio near the river', addr: 'DUMBO, Brooklyn', url: U('1493809842364-78817add7ffb') },
+      { s: 1, tag: 'For rent', price: '$2,850/mo', title: '2-bed with skyline views', addr: 'Long Island City, Queens', url: U('1502005229762-cf1b2da7c5d6') },
+      { s: 2, tag: 'Sold', price: '$1,050,000', title: 'Brownstone parlor floor', addr: 'Carroll Gardens, Brooklyn', url: U('1570129477492-45c003edd2be') },
+      { s: 2, tag: 'Sold', price: '$540,000', title: 'Pre-war 1-bed co-op', addr: 'Prospect Heights, Brooklyn', url: U('1502672260266-1c1ef2d93688') }
+    ];
+    const labels = ['For sale', 'For rent', 'Sold'];
+    const tabs = labels.map((label, i) => ({ label, n: all.filter(a => a.s === i).length, active: this.state.tab === i, inactive: this.state.tab !== i,
+      select: () => { if (this.state.tab === i) return; const c = document.querySelector('[data-card]'); const gp = c && c.parentElement; if (gp && gp.offsetHeight > (this._gridH || 0)) this._gridH = gp.offsetHeight; this.setState({ tab: i, busy: true }); clearTimeout(this._bt); this._bt = setTimeout(() => this.setState({ busy: false }, () => requestAnimationFrame(() => document.querySelectorAll('[data-card]').forEach((el, k) => el.animate && el.animate([{ opacity: 0, transform: 'perspective(900px) rotateY(-30deg) translateY(24px) scale(.94)' }, { opacity: 1, transform: 'none' }], { duration: 750, delay: k * 70, easing: 'cubic-bezier(.25,.8,.25,1)', fill: 'backwards' })))), 650); } }));
+    const skel = !!(this.props.forceSkeleton || this.state.boot || this.state.busy);
+    const gridMin = this._gridH ? this._gridH + "px" : "0px";
+    const skv = { gridMin, skel, ready: !skel, sk4: [1,2,3,4], sk6: [1,2,3,4,5,6], sk3: [1,2,3] };
+    return { ...skv,
+      tabs, listings: all.filter(a => a.s === this.state.tab),
+      stats: [{ v: '128', k: 'Deals closed' }, { v: '4.9 ★', k: '86 reviews' }, { v: '$92M', k: 'Total sales volume' }, { v: '12 yrs', k: 'Experience' }],
+      tags: ['English', 'Spanish', 'First-time buyers', 'Co-ops', 'Relocation'],
+      reviews: [
+        { name: 'Daniel & Mia R.', deal: 'Bought in Park Slope', text: 'Emma found us an off-market 3-bed two weeks after our first call and negotiated $40k off the asking price. Calm, fast and honest the whole way.' },
+        { name: 'Priya S.', deal: 'Sold in Astoria', text: 'Staging advice, great photos and 14 showings in the first weekend. We closed above ask in under a month.' },
+        { name: 'Marcus L.', deal: 'Rented in DUMBO', text: 'Relocating from Chicago, I never saw the apartment in person. Emma\'s video tours were thorough and everything was exactly as described.' }
+      ],
+      send: () => this.setState({ sent: true }), sendLabel: this.state.sent ? '✓ Message sent' : 'Send message'
+    };
+  }
+}
+</script>
+</body>
+</html>
